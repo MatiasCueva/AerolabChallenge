@@ -1,0 +1,26 @@
+/**Variables**/
+
+$primary: #25bbf1;
+
+
+/**Variables**/
+
+@font-face{
+    font-family: "SourceRegular";
+    src: url("../assets/Fonts/Source_Sans_Pro/SourceSansPro-Regular.ttf");
+}
+
+
+@font-face{
+    font-family: "SourceBold";
+    src: url("../assets/Fonts/Source_Sans_Pro/SourceSansPro-Bold.ttf");
+}
+
+
+.container { 
+    font-family: "SourceRegular", serif; 
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1176px;
+    width: 100%;
+}

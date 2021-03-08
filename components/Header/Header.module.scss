@@ -1,0 +1,22 @@
+@import '../../styles/Global.module.scss';
+
+
+.headerBg{
+    background: url(../../assets/img/header-x1.png) 100% no-repeat #15dbff;
+    background-size: cover;
+    background-position: top;
+
+    .header{
+        display: flex;
+        align-items: flex-end;
+        color: #ffffff;
+        font-size: 64px;
+        height: 460px;
+    
+        h2{
+            margin: 0;
+            padding-bottom: 48px;
+        }
+    }
+}
+
