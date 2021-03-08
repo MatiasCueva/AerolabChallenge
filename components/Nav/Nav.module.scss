@@ -1,0 +1,29 @@
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 12px 42px;
+    background-color: #ffffff;
+    .user{
+        display: flex;
+        align-items: center;
+        p{
+            font-size:24px;
+            color:#616161;
+            letter-spacing:-0.15px;
+            margin: 0;
+        }
+        .userPoints{
+            display: flex;
+            padding: 14px;
+            background:#ededed;
+            border-radius:100px;
+            margin-left: 18px;
+            p{
+                margin-right: 10px;
+            };
+        }
+    }
+}

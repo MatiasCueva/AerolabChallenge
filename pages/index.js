@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Card from '../components/Card/Card'
 import Header from '../components/Header/Header'
+import Nav from '../components/Nav/Nav'
 import styles from "../styles/Global.module.scss";
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
       </Head>
 
       <main>
+        <Nav />
         <Header />
         <Card />
       </main>
