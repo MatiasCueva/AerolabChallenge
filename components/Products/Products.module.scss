@@ -1,0 +1,43 @@
+@import '../../styles/Global.module.scss';
+
+.products{
+    .productsNav{
+        display: flex;
+        border-bottom: 1px solid #d9d9d9;
+        p{
+            font-size: 24px;
+            color: #a3a3a3;
+            letter-spacing: -0.15px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            margin-left: 14px;
+            padding: 10px;         
+        }
+        .productsQuantity{
+            color:#616161;
+            padding-right: 24px;
+            margin-left: 0;
+            padding-left: 0;
+            border-right: 1px solid #d9d9d9;
+        }
+        .productsFilter{
+            background:#ededed;
+            border-radius:100px;
+            cursor: pointer;
+            padding: 9px 24px;
+            transition: 0.5s;
+            &:hover{
+                transform: translateY(-5px);
+                background:$primary;
+                color: #ffffff;
+            }
+        }
+
+        .active{
+            color:#ffffff;
+            background:$primary;
+            border-radius:100px;
+        }
+
+    }
+}

@@ -1,10 +1,11 @@
 import Head from 'next/head'
-import Card from '../components/Card/Card'
+import Products from '../components/Products/Products'
 import Header from '../components/Header/Header'
 import Nav from '../components/Nav/Nav'
+import {getProducts, getUser} from '../services/api'
 import styles from "../styles/Global.module.scss";
 
-export default function Home() {
+export default function Home({items, user}) {
   return (
     <div>
       <Head>
@@ -13,9 +14,9 @@ export default function Home() {
       </Head>
 
       <main>
-        <Nav />
+        <Nav user={user}/>
         <Header />
-        <Card />
+        <Products items={items} />
       </main>
 
       <style jsx global>{`
@@ -34,4 +35,13 @@ export default function Home() {
       `}</style>
     </div>
   )
+}
+
+export async function getServerSideProps() {
+  return {
+    props: {
+      items: await getProducts(),
+      user: await getUser(),
+    },
+  };
 }
