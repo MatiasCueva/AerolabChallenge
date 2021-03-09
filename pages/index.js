@@ -7,7 +7,7 @@ import styles from "../styles/Global.module.scss";
 
 export default function Home({items, user}) {
   return (
-    <div>
+    <div className={styles.bodyBg} >
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />

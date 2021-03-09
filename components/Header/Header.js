@@ -5,7 +5,7 @@ export default function Header() {
     <div className={styles.headerBg}>
       <div className={styles.container}>
         <div className={styles.header}>
-          <h2>Electronics</h2>
+          <h1>Electronics</h1>
         </div>
       </div>
     </div>
