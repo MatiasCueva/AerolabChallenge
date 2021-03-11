@@ -4,6 +4,9 @@
 .products{
     background-color: #f9f9f9;
     margin-top: 50px;
+    @media screen and (max-width: $phone) {
+        margin-top: 25px;
+    }
     .productsNav{
         display: flex;
         border-bottom: 1px solid #d9d9d9;
@@ -24,7 +27,6 @@
                 position: absolute;
                 z-index: 0;
                 display: flex;
-                border-bottom: 1px solid #d9d9d9;
                 transition: 0.5s;
                 button{
                     font-size: 14px;
@@ -113,7 +115,10 @@
         }
 
         .navDown{
-            transform: translateY(50px);
+            transform: translate(0px, 0px);
+            @media screen and (max-width: $phone) {
+               transform: translateY(80px);
+            }
         }
 
     }

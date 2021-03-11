@@ -5,7 +5,8 @@ import {useState} from 'react';
 export default function Products({ items, userPoints }) {
 
   const [showNav, setShowNav] = useState(false);
-  const [orderItems, setOrderItems] = useState([...items])
+  const [activeNav, setActiveNav] = useState("recent")
+  const [orderItems, setOrderItems] = useState([...items]);
 
 
   function handleShowNav() {
@@ -23,7 +24,24 @@ export default function Products({ items, userPoints }) {
     });
 
     setOrderItems([...lowestPriceOrder]);
+    setActiveNav("lowest");
   }
+
+  function orderHighestPrice() {
+
+    const highestPriceOrder = orderItems.sort(function (a, b) {
+      return b.cost - a.cost;
+    });
+
+    setOrderItems([...highestPriceOrder]);
+    setActiveNav("highest");
+  }
+
+  function orderRecents() {
+    setOrderItems(items);
+    setActiveNav("recent");
+  }
+
 
   return (
 
@@ -41,16 +59,15 @@ export default function Products({ items, userPoints }) {
               </svg>
             </p>
           </div>
-          <div className={`navButtons ${showNav && 'show'}`}>
-            <button
-              className={[styles.active, styles.productsFilter].join(" ")}
-            >
+          <div className={`${styles.navButtons} ${showNav && styles.navDown}`}>
+            <button onClick={orderRecents}
+              className={`${styles.productsFilter} ${(activeNav=="recent") && styles.active}`}>
               Most recent
             </button>
-            <button onClick={orderLowestPrice} className={styles.productsFilter}>
+            <button onClick={orderLowestPrice} className={`${styles.productsFilter} ${(activeNav=="lowest") && styles.active}`}>
               Lowest price
             </button>
-            <button className={styles.productsFilter}>Highest price</button>
+            <button onClick={orderHighestPrice} className={`${styles.productsFilter} ${(activeNav=="highest") && styles.active}`}>Highest price</button>
           </div>
         </div>
         
@@ -64,22 +81,8 @@ export default function Products({ items, userPoints }) {
 
 
       <style jsx>{`
-        @media (max-width: 768px) {
-          .navButtons {
-            position: absolute;
-            z-index: 0;
-            display: flex;
-            border-bottom: 1px solid #d9d9d9;
-            transition: 0.5s;
-          }
-          .navButtons button {
-            font-size: 14px;
-            padding: 6px;
-          }
-        }
-        .show{
-          transform: translateY(80px)
-        }
+
+
         .
       `}</style>
     </div>

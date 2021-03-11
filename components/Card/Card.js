@@ -1,32 +1,23 @@
 import styles from "./Card.module.scss";
 import Image from "next/image";
-import { useAppContext } from "../../services/context/context";
 import { useState } from "react";
 
 export default function Card({product, userPoints}) {
   const { img, _id, cost, name, category } = product;
-  const { variableState, setVariableState } = useAppContext();
-  const [piruloValue, setPiruloValue] = useState(false);
+  const [ noRedeem, setNoRedeem ] = useState(false)
 
-  let overlay = styles.cardOverlay;
+
   let havePoint =  styles.bagBtn;
-
+  let overlay = styles.cardOverlay;
 
   if (cost > userPoints){
     overlay = styles.hide;
-    havePoint =  [styles.bagBtn, styles.noPoints].join(" ")
-  }
-
-  function handleRedeem(){
-    setPiruloValue(!piruloValue);
-    setVariableState({...variableState, pirulo: piruloValue? "flema": "pinchila"});
+    havePoint = `${styles.bagBtn} ${styles.noPoints}`
   }
 
 
 
   return (
-   // <Context.provider value={{pirulo: piruloValue}}>
-
   
     <div className={styles.card}>
 
@@ -41,7 +32,7 @@ export default function Card({product, userPoints}) {
 
       <div className={overlay}>
         <p>{cost} <Image src="/icons/coin.svg" alt="coin" width={28} height={28} /></p>
-        <button onClick={handleRedeem} className={styles.redeemBtn}>Redeem now</button>
+        <button className={styles.redeemBtn}>Redeem now</button>
       </div>
 
       <div className={styles.cardImgContainer}>
