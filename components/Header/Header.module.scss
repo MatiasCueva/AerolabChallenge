@@ -4,19 +4,30 @@
 .headerBg{
     background: url(../../assets/img/header-x1.png) 100% no-repeat #15dbff;
     background-size: cover;
-    background-position: top;
+    background-position: right;
     margin-top: 80px;
+
 
     .header{
         display: flex;
         align-items: flex-end;
         color: #ffffff;
-        font-size: 64px;
         height: 460px;
+        @media screen and (max-width: $tablet) {
+            height: 360px;
+        }
+        @media screen and (max-width: $phone) {
+            height: 260px;
+        }
     
         h1{
             margin: 0;
             padding-bottom: 48px;
+            font-size: 64px;
+            @media screen and (max-width: $tablet) {
+                font-size: 48px;
+            }
+            
         }
     }
 }

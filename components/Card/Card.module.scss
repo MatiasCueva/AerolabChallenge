@@ -8,6 +8,13 @@
   padding: 20px;
   transition: 0.5s;
   position: relative;
+  @media screen and (max-width: $tablet) {
+    width: 47%;
+  }
+  @media screen and (max-width: $phone) {
+    width: 100%;
+  }
+
   &:hover {
     transform: translateY(-5px);
     -webkit-box-shadow: 0px 6px 18px -4px rgba(0, 0, 0, 0.75);
@@ -16,13 +23,13 @@
     .cardOverlay {
       opacity: 1;
     }
-    .bagBtn{
-        background-color: #ffffff;
-        svg{
-            path{
-                fill: $primary;
-            }
+    .bagBtn {
+      background-color: #ffffff;
+      svg {
+        path {
+          fill: $primary;
         }
+      }
     }
   }
   .cardOverlay {
@@ -55,25 +62,14 @@
       padding: 12px 50px;
       transition: 0.5s;
       cursor: pointer;
-      &:hover{
+      &:hover {
         background: #ededed;
         color: #a3a3a3;
       }
+      &:focus {
+        outline: transparent;
+      }
     }
-  }
-
-  .bagBtn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    z-index: 4;
-    height: 42px;
-    width: 42px;
-    border: none;
-    border-radius: 50px;
-    background-color: $primary;
-    transition: 0.5s;
-    cursor: pointer;
   }
 
   .cardImgContainer {
@@ -90,18 +86,65 @@
     }
   }
 
-  .cardText{
-      padding-top: 15px;
-      p{
-        font-size:18px;
-        color:#616161;
-        margin: 0;
+  .cardText {
+    padding-top: 15px;
+
+    p {
+      font-size: 18px;
+      color: #616161;
+      margin: 0;
+      @media screen and (max-width: $tablet) {
+        font-size: 16px;
       }
-      .category{
-        font-size:16px;
-        color:#a3a3a3;
-        letter-spacing:-0.04px;
+    }
+    .category {
+      font-size: 16px;
+      color: #a3a3a3;
+      letter-spacing: -0.04px;
+      @media screen and (max-width: $tablet) {
+        font-size: 14px;
       }
+    }
   }
 
+  .bagBtn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 4;
+    height: 42px;
+    width: 42px;
+    border: none;
+    border-radius: 50px;
+    background-color: $primary;
+    transition: 0.5s;
+    cursor: pointer;
+    &:focus {
+      outline: transparent;
+    }
+    .cantRedeem {
+      display: none;
+    }
+  }
+
+  .noPoints {
+    width: max-content;
+    background: rgba(97, 97, 97, 0.8) !important;
+    color: #ffffff;
+    padding-left: 15px;
+    cursor: initial;
+    svg {
+      display: none;
+    }
+    .cantRedeem {
+      display: flex;
+      align-items: center;
+      p {
+        margin-right: 5px;
+      }
+    }
+  }
+  .hide {
+    display: none;
+  }
 }

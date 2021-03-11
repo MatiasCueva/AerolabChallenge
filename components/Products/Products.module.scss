@@ -3,18 +3,81 @@
 
 .products{
     background-color: #f9f9f9;
+    margin-top: 50px;
     .productsNav{
         display: flex;
         border-bottom: 1px solid #d9d9d9;
         margin-bottom: 20px;
-        p{
+        transition: 0.5s;
+        .navControl{
+            display: flex;
+            @media screen and (max-width: $phone) {
+                width: 100%;
+                position: relative;
+                background: #f9f9f9;
+                z-index: 5;
+                justify-content: center;
+            }
+        }
+        .navButtons{
+            @media screen and (max-width: $phone) {
+                position: absolute;
+                z-index: 0;
+                display: flex;
+                border-bottom: 1px solid #d9d9d9;
+                transition: 0.5s;
+                button{
+                    font-size: 14px;
+                    padding: 6px;
+                }
+            }
+        }
+
+        p, button{
             font-size: 24px;
             color: #a3a3a3;
             letter-spacing: -0.15px;
             margin-top: 20px;
             margin-bottom: 20px;
             margin-left: 14px;
-            padding: 10px;         
+            padding: 10px;  
+            @media screen and (max-width: $tablet) {
+                font-size: 16px;
+              }
+        }
+        .sortButton{
+            @media screen and (max-width: $phone) {
+                display: flex;
+                background:#ededed;
+                border-radius:100px;
+                cursor: pointer;
+                padding: 9px;
+                transition: 0.5s;
+                border: none;
+                &:hover{
+                    background:#c7c7c7;
+                    color: #ffffff;
+                    svg{
+                        path{
+                            fill: #ffffff;
+                        }
+                    }
+                }
+            }
+            svg{
+                display: none;
+                @media screen and (max-width: $phone) {
+                    display: block;
+                    height: 15px;
+                    margin-top: 5px;
+                    margin-left: 5px;
+
+                    path{
+                        transition: 0.5s;
+                        fill: #a3a3a3;
+                    }
+                }
+            }
         }
         .productsQuantity{
             color:#616161;
@@ -29,6 +92,10 @@
             cursor: pointer;
             padding: 9px 24px;
             transition: 0.5s;
+            border: none;
+            &:focus{
+                outline: transparent;
+            }
             &:hover{
                 transform: translateY(-5px);
                 background:$primary;
@@ -45,6 +112,13 @@
             border-radius:100px;
         }
 
+        .navDown{
+            transform: translateY(50px);
+        }
+
+    }
+    .navMargin{
+        margin-bottom: 60px;
     }
     .cardsContainer{
         display: flex;

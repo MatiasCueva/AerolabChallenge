@@ -2,6 +2,10 @@
 
 $primary: #25bbf1;
 
+$desktop: 1200px;
+$tablet: 1024px;
+$phone: 768px;
+
 
 /**Variables**/
 
@@ -27,5 +31,16 @@ $primary: #25bbf1;
     margin-right: auto;
     max-width: 1176px;
     width: 100%;
-    
+    @media screen and (max-width: $desktop) {
+        max-width: 992px;
+    }
+
+    @media screen and (max-width: $tablet) {
+        max-width: 700px;
+    }
+    @media screen and (max-width: $phone) {
+        max-width: 320px;
+    }
+        
 }
+
