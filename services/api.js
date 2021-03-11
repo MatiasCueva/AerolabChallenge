@@ -26,6 +26,17 @@ export async function getUser() {
 }
 
 
+export async function getHistory() {
+  const res = await fetch(
+    "https://coding-challenge-api.aerolab.co/user/history",
+    requestOptions
+  );
+  return await res.json();
+}
+
+
+
+
 export async function redeemItem(_data){
   fetch('https://jsonplaceholder.typicode.com/posts', {
   method: "POST",

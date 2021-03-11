@@ -1,10 +1,9 @@
 import styles from "./Card.module.scss";
 import Image from "next/image";
-import { useState } from "react";
+
 
 export default function Card({product, userPoints}) {
   const { img, _id, cost, name, category } = product;
-  const [ noRedeem, setNoRedeem ] = useState(false)
 
 
   let havePoint =  styles.bagBtn;

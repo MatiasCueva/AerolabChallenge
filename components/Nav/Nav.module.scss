@@ -1,31 +1,113 @@
+@import "../../styles/Global.module.scss";
 
-.navbar{
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 12px 42px;
+  background-color: #ffffff;
+  z-index: 50;
+  .user {
+    display: flex;
+    align-items: center;
+    .userName {
+      color: $primary;
+      font-size: 24px;
+      padding: 8px 20px;
+      border-radius: 100px;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: 0.5s;
+      &:hover {
+        transform: translateY(-2px);
+        -webkit-box-shadow: 0px 6px 18px -4px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 0px 6px 18px -4px rgba(0, 0, 0, 0.75);
+        box-shadow: 0px 6px 18px -4px rgba(0, 0, 0, 0.75);
+      }
+    }
+    .userPoints {
+      display: flex;
+      padding: 14px;
+      background: #ededed;
+      border-radius: 100px;
+      margin-left: 18px;
+      p {
+        margin-right: 10px;
+        font-size: 24px;
+        color: #616161;
+        letter-spacing: -0.15px;
+        margin: 0;
+      }
+    }
+  }
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #f9f9f9;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 20px;
+  .user{
     display: flex;
     justify-content: space-between;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    padding: 12px 42px;
-    background-color: #ffffff;
-    z-index: 50;
-    .user{
-        display: flex;
-        align-items: center;
-        p{
-            font-size:24px;
-            color:#616161;
-            letter-spacing:-0.15px;
-            margin: 0;
-        }
-        .userPoints{
-            display: flex;
-            padding: 14px;
-            background:#ededed;
-            border-radius:100px;
-            margin-left: 18px;
-            p{
-                margin-right: 10px;
-            };
+    padding: 0 35px;
+    border-bottom: 1px solid #d9d9d9;
+    padding-bottom: 10px;
+    .userName{
+        padding: 0;
+        cursor: initial;
+        &:hover{
+            box-shadow: none;
+            transform: translate(0);
         }
     }
+    .userPoints{
+        background: transparent;
+    }
+  }
+  a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #a3a3a3;
+    display: block;
+    transition: 0.3s;
+    margin-top: 20px;
+    &:hover {
+      color: $primary;
+    }
+  }
+  .closeBtn {
+    position: absolute;
+    color: $primary;
+    margin: 0;
+    top: 0;
+    right: 5px;
+    cursor: pointer;
+  }
+  .redeemCardContainer{
+    height: 70%;
+    overflow: auto;
+  }
+}
+
+.show {
+  width: 50%;
+  -webkit-box-shadow: -4px 10px 43px 8px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: -4px 10px 43px 8px rgba(0, 0, 0, 0.25);
+  box-shadow: -4px 10px 43px 8px rgba(0, 0, 0, 0.25);
+  @media screen and (max-width: $tablet) {
+    width: 75%;
+  }
+  @media screen and (max-width: $phone) {
+    width: 100%;
+  }
 }

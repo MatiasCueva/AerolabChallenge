@@ -2,12 +2,11 @@ import Head from "next/head";
 import Products from "../components/Products/Products";
 import Header from "../components/Header/Header";
 import Nav from "../components/Nav/Nav";
-import { getProducts, getUser } from "../services/api";
+import { getHistory, getProducts, getUser } from "../services/api";
 import styles from "../styles/Global.module.scss";
-import { AppContextProvider, useAppContext } from "../services/context/context";
-import { useEffect, useState } from "react";
+import { AppContextProvider} from "../services/context/context";
 
-export default function Home({ items, user }) {
+export default function Home({ items, user, history }) {
 
   return (
     <AppContextProvider>
@@ -18,7 +17,7 @@ export default function Home({ items, user }) {
           </Head>
 
           <main>
-            <Nav user={user} />
+            <Nav user={user} history={history} />
             <Header />
             <Products
               items={items}
@@ -51,6 +50,7 @@ export async function getServerSideProps() {
     props: {
       items: await getProducts(),
       user: await getUser(),
+      history: await getHistory(),
     },
   };
 }

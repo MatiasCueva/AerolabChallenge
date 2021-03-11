@@ -1,5 +1,5 @@
 import styles from "./Products.module.scss";
-import Card from "../Card/Card";
+import Card from "./Card/Card";
 import {useState} from 'react';
 
 export default function Products({ items, userPoints }) {
