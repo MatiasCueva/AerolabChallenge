@@ -21,8 +21,9 @@ export default function Home({ products, user, history }) {
   return (
         <div className={styles.bodyBg}>
           <Head>
-            <title>Create Next App</title>
+            <title>Electronics</title>
             <link rel="icon" href="/favicon.ico" />
+            <meta name="Aerolab Challenge"/>
           </Head>
 
           <main>
