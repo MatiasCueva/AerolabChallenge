@@ -4,6 +4,9 @@
 .products{
     background-color: #f9f9f9;
     margin-top: 50px;
+    border-bottom: 1px solid #d9d9d9;
+    padding-bottom: 50px;
+    margin-bottom: 50px;
     @media screen and (max-width: $phone) {
         margin-top: 25px;
     }
