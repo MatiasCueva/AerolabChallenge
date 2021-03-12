@@ -2,11 +2,13 @@ import styles from "./Card.module.scss";
 import Image from "next/image";
 import useAppContext from "../../../context/context";
 import { redeemItem } from "../../../services/api";
+import { useState } from "react";
 
 
 export default function Card({product, userPoints}) {
   const { img, _id, cost, name, category } = product;
   const {variableState, setVariableState}=useAppContext();
+  const [redeemOk, setredeemOk] = useState(false);
 
   let havePoint =  styles.bagBtn;
   let overlay = styles.cardOverlay;
@@ -19,6 +21,10 @@ export default function Card({product, userPoints}) {
   async function handleRedeem(productId){
      const user=await redeemItem(productId);
      setVariableState({...variableState,user})
+     setredeemOk(true);
+     setTimeout(function(){ 
+      setredeemOk(false);
+    }, 5000);
  }
 
 
@@ -35,10 +41,12 @@ export default function Card({product, userPoints}) {
         </div>
 
       </button>
-
-      <div className={overlay}>
+      
+      <div className={`${overlay} ${redeemOk && styles.redeemOk}`}>
         <p>{cost} <Image src="/icons/coin.svg" alt="coin" width={28} height={28} /></p>
-        <button onClick={()=>handleRedeem(_id)} className={styles.redeemBtn}>Redeem now</button>
+        <svg height="50px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#ffffff" d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></svg>
+        <button onClick={()=>handleRedeem(_id)} className={styles.redeemBtn} disabled={redeemOk}>{redeemOk? "you redeem succesfully":"Redeem now"}</button>
+
       </div>
 
       <div className={styles.cardImgContainer}>

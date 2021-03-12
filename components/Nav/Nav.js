@@ -17,7 +17,7 @@ export default function Nav({ user, history }) {
     setOpenNav(false);
   }
 
-  async function addPoints(amount) {
+  async function handleAddPoints(amount) {
     const user = await addPoints(amount);
     setVariableState({ ...variableState, user });
   }
@@ -51,9 +51,9 @@ export default function Nav({ user, history }) {
           </div>
         </div>
 
-        <a onClick={() => addPoints("500")}> Add Points 500 <Image src="/icons/coin.svg" alt="coin" width={28} height={28} />
+        <a onClick={() => handleAddPoints(1000)}> Add Points 1000 <Image src="/icons/coin.svg" alt="coin" width={28} height={28} />
         </a>
-        <a href="#">Redeem history</a>
+        <p>Redeem history</p>
 
         <div className={styles.redeemCardContainer}>
           {history

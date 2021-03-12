@@ -73,7 +73,7 @@
         background: transparent;
     }
   }
-  a {
+  a, p {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
@@ -81,8 +81,15 @@
     display: block;
     transition: 0.3s;
     margin-top: 20px;
+
+  }
+  a{
+    cursor: pointer;
     &:hover {
       color: $primary;
+    }
+    img{
+      margin-top: 10px !important;
     }
   }
   .closeBtn {

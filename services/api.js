@@ -43,7 +43,7 @@ export async function redeemItem(productId) {
 export async function addPoints(amount) {
   const res = await fetch("https://coding-challenge-api.aerolab.co/user/points", {
     method: "POST",
-    body: JSON.stringify({ amount:amount }),
+    body: JSON.stringify({amount:amount}),
     headers: myHeaders,
   });
   const user=await getUser();
