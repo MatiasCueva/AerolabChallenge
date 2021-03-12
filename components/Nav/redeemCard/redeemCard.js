@@ -8,7 +8,7 @@ export default function RedeemCard({ redeems }) {
   return (
     <div className={styles.redeemCard}>
       <div className={styles.redeemCardImg}>
-        <img src={img.url} />
+        <img alt={name} src={img.url} />
       </div>
       <div className={styles.redeemCardText}>
         <p>{name}</p>
