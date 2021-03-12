@@ -1,13 +1,13 @@
 import styles from "./Products.module.scss";
 import Card from "./Card/Card";
 import {useState} from 'react';
+import useAppContext from "../../context/context";
 
-export default function Products({ items, userPoints }) {
+export default function Products({ products, userPoints }) {
 
   const [showNav, setShowNav] = useState(false);
   const [activeNav, setActiveNav] = useState("recent")
-  const [orderItems, setOrderItems] = useState([...items]);
-
+  const { variableState, setVariableState } = useAppContext();
 
   function handleShowNav() {
     if (window.innerWidth < 769 && !showNav ) {
@@ -17,30 +17,31 @@ export default function Products({ items, userPoints }) {
     }
   }
 
-  function orderLowestPrice() {
-
-    const lowestPriceOrder = orderItems.sort(function (a, b) {
-      return a.cost - b.cost;
+  function orderRecents(){
+    const mostRecent = variableState.products.sort(function (a, b) {
+      return a._id > b._id?1:-1;
     });
-
-    setOrderItems([...lowestPriceOrder]);
-    setActiveNav("lowest");
+    setVariableState({...variableState,products:[...mostRecent]});
+    setActiveNav("recent");
   }
 
+  function orderLowestPrice() {
+
+    const lowestPriceOrder = variableState.products.sort(function (a, b) {
+      return a.cost - b.cost;
+    });
+    setVariableState({...variableState,products:[...lowestPriceOrder]});
+    setActiveNav("lowest");
+  }
   function orderHighestPrice() {
 
-    const highestPriceOrder = orderItems.sort(function (a, b) {
-      return b.cost - a.cost;
+    const highPriceOrder = variableState.products.sort(function (a, b) {
+      return (a.cost - b.cost)*-1;
     });
-
-    setOrderItems([...highestPriceOrder]);
+    setVariableState({...variableState,products:[...highPriceOrder]});
     setActiveNav("highest");
   }
 
-  function orderRecents() {
-    setOrderItems(items);
-    setActiveNav("recent");
-  }
 
 
   return (
@@ -49,9 +50,7 @@ export default function Products({ items, userPoints }) {
       <div className={styles.products}>
         <div className={`${styles.productsNav} ${showNav && styles.navMargin}`}>
           <div className={styles.navControl}>
-            <p className={styles.productsQuantity}>
-              16 of {items.length} products
-            </p>
+
             <p onClick={handleShowNav} className={styles.sortButton}>
               Sort by:
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -72,7 +71,7 @@ export default function Products({ items, userPoints }) {
         </div>
         
         <div className={styles.cardsContainer}>
-          {orderItems?orderItems.map((item) => (
+          {variableState.products?variableState.products.map((item) => (
                 <Card key={item._id} product={item} userPoints={userPoints} />
               ))
             : "Sin productos"}

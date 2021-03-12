@@ -1,10 +1,12 @@
 import styles from "./Card.module.scss";
 import Image from "next/image";
+import useAppContext from "../../../context/context";
+import { redeemItem } from "../../../services/api";
 
 
 export default function Card({product, userPoints}) {
   const { img, _id, cost, name, category } = product;
-
+  const {variableState, setVariableState}=useAppContext();
 
   let havePoint =  styles.bagBtn;
   let overlay = styles.cardOverlay;
@@ -13,6 +15,11 @@ export default function Card({product, userPoints}) {
     overlay = styles.hide;
     havePoint = `${styles.bagBtn} ${styles.noPoints}`
   }
+
+  async function handleRedeem(productId){
+     const user=await redeemItem(productId);
+     setVariableState({...variableState,user})
+ }
 
 
 
@@ -31,7 +38,7 @@ export default function Card({product, userPoints}) {
 
       <div className={overlay}>
         <p>{cost} <Image src="/icons/coin.svg" alt="coin" width={28} height={28} /></p>
-        <button className={styles.redeemBtn}>Redeem now</button>
+        <button onClick={()=>handleRedeem(_id)} className={styles.redeemBtn}>Redeem now</button>
       </div>
 
       <div className={styles.cardImgContainer}>

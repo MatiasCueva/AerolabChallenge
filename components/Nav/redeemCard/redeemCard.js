@@ -5,8 +5,6 @@ import Image from "next/image";
 export default function RedeemCard({ redeems }) {
   const { img, cost, name, category } = redeems;
 
-  console.log(redeems);
-
   return (
     <div className={styles.redeemCard}>
       <div className={styles.redeemCardImg}>

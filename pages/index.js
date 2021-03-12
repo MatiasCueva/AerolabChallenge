@@ -4,12 +4,21 @@ import Header from "../components/Header/Header";
 import Nav from "../components/Nav/Nav";
 import { getHistory, getProducts, getUser } from "../services/api";
 import styles from "../styles/Global.module.scss";
-import { AppContextProvider} from "../services/context/context";
+import useAppContext  from "../context/context";
+import { useEffect } from "react";
 
-export default function Home({ items, user, history }) {
+export default function Home({ products, user, history }) {
+  const { variableState, setVariableState } = useAppContext();
+
+  useEffect(()=>{
+    if(!variableState.products || !variableState.user ){
+      setVariableState({...variableState,products, user, history});
+    }
+    },[variableState]);
+
+    if(!variableState.products || !variableState.user) return <></>
 
   return (
-    <AppContextProvider>
         <div className={styles.bodyBg}>
           <Head>
             <title>Create Next App</title>
@@ -17,11 +26,11 @@ export default function Home({ items, user, history }) {
           </Head>
 
           <main>
-            <Nav user={user} history={history} />
+            <Nav user={variableState.user} history={variableState.history} />
             <Header />
             <Products
-              items={items}
-              userPoints={user.points}
+              products={variableState.products}
+              userPoints={variableState.user.points}
             />
           </main>
 
@@ -41,14 +50,12 @@ export default function Home({ items, user, history }) {
           `}</style>
         </div>
       )
-    </AppContextProvider>
-  );
 }
 
 export async function getServerSideProps() {
   return {
     props: {
-      items: await getProducts(),
+      products: await getProducts(),
       user: await getUser(),
       history: await getHistory(),
     },
