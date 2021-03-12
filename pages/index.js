@@ -19,6 +19,7 @@ export default function Home({ products, user, history }) {
     if(!variableState.products || !variableState.user) return <></>
 
   return (
+
         <div className={styles.bodyBg}>
           <Head>
             <title>Electronics</title>
@@ -51,7 +52,7 @@ export default function Home({ products, user, history }) {
             }
           `}</style>
         </div>
-      )
+     )
 }
 
 export async function getServerSideProps() {
