@@ -11,13 +11,15 @@ $phone: 768px;
 
 @font-face{
     font-family: "SourceRegular";
-    src: url("../assets/Fonts/Source_Sans_Pro/SourceSansPro-Regular.ttf");
+    src: url("../assets/Fonts/Source_Sans_Pro/SourceSansPro-Regular.woff2");
+    font-display: swap;
 }
 
 
 @font-face{
     font-family: "SourceBold";
-    src: url("../assets/Fonts/Source_Sans_Pro/SourceSansPro-Bold.ttf");
+    src: url("../assets/Fonts/Source_Sans_Pro/SourceSansPro-Bold.woff2");
+    font-display: swap;
 }
 
 

@@ -37,6 +37,7 @@ export default function Home({ products, user, history }) {
             />
           </main>
 
+
           <style jsx global>{`
             html,
             body {
