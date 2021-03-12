@@ -10,5 +10,4 @@ npm install
 
 npm run dev
 
-### Start Work
 
