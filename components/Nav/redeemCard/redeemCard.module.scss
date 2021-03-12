@@ -12,6 +12,9 @@
         display: flex;
         align-items: center;
         padding: 10px;
+        @media screen and (max-width: $phone) {
+          width: 100px;
+        }
         img{
             height: auto;
             width: 100%;
@@ -22,7 +25,10 @@
         flex-direction: column;
         justify-content: center;
         margin-left: 25px;
-        
+        @media screen and (max-width: $phone) {
+          margin-left: 0;
+          margin-top: 25px;
+        }
         p {
             font-size: 18px;
             color: #616161;
@@ -30,6 +36,12 @@
             @media screen and (max-width: $tablet) {
               font-size: 16px;
             }
+            @media screen and (max-width: $phone) {
+              padding: 5px;
+            }
+
+
+
           }
           .category {
             font-size: 16px;
@@ -51,6 +63,10 @@
         padding: 2px 8px;
         img{
           margin-left: 3px !important;
+          @media screen and (max-width: $phone) {
+            height: 24px !important;
+          }
+
         }
     }
 }

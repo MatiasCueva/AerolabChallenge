@@ -23,7 +23,7 @@ export default function Nav({ user, history }) {
   }
 
   return (
-    <div className={styles.navbar}>
+    <nav className={styles.navbar}>
       <Image src="/icons/aerolab-logo.svg" alt="logo" width={36} height={36} />
       <div className={styles.user}>
         <a onClick={showNav} className={styles.userName}>
@@ -61,6 +61,6 @@ export default function Nav({ user, history }) {
             : "No Redeems"}
         </div>
       </div>
-    </div>
+    </nav>
   );
 }

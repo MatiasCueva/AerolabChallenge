@@ -24,6 +24,7 @@ export default function Home({ products, user, history }) {
             <title>Electronics</title>
             <link rel="icon" href="/favicon.ico" />
             <meta name="Aerolab Challenge"/>
+            <link rel="icon" type="image/png" href="../public/icons/aerolab-logo.svg" />
           </Head>
 
           <main>
